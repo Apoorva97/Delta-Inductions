@@ -1,8 +1,5 @@
 //SYSTEM ADMIN TASK_1
 
-//To change the date to two days before 
-sudo date -s "Wed May 25 11:06:25 IST 2016"
-
 //To create a new directory
 mkdir My_dir
 
