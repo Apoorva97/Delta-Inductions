@@ -14,6 +14,8 @@ charSet="[alnum]"
 
 for x in {1..100}; 
 do 
-dd if=/dev/zero of=./file$x.txt bs=1024 count=10 cat /dev/urandom |tr -cd '$charSet'| fold -w 16 | head -n 1 > ./file$x.txt 
-chmod 400 ./file$x.txt touch -d "2 days ago" ./file$x.txt;  
+dd if=/dev/zero of=./file$x.txt bs=1024 count=10;
+cat /dev/urandom |tr -cd '$charSet'| fold -w 16 | head -n 1 > ./file$x.txt; 
+chmod 400 ./file$x.txt; 
+touch -d "2 days ago" ./file$x.txt;  
 done
