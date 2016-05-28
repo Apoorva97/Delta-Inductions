@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input:focus
+	{background-color: yellow;}
+div.form
+	{
+	 position: absolute;
+	 font-weight: bolder;
+	 color: red;
+    	 top: 180px;
+    	 right:500px;
+     	 width: 300px;
+    	 height: 100px;
+	}
+ td {
+    border: 1px solid black;
+    text-align: center;
+    color:black;    
+    }
+</div>
+</style>
+</head>
+<script type="text/javascript">
+var myVar;
+function func_start()
+	{
+	 myVar = setTimeout(function(){ func_start1() }, 500);
+	}
+function func_start1()
+	{
+  	 var day=1000*60*60*24;
+	 var hours=1000*60*60;
+	 var min=1000*60;
+   	 var sec=1000;
+
+	 var d1 = new Date();
+
+ 	 var Y=document.getElementById("Dat1").value;
+	 var M=document.getElementById("Dat2").value;
+	 var D=document.getElementById("Dat3").value;
+	 var H=document.getElementById("Dat4").value;
+	 var Mi=document.getElementById("Dat5").value;
+	 var S=document.getElementById("Dat6").value;
+
+	 var d2= new Date(Y,M-1,D,H,Mi,S,0);
+	 
+	 var diffDays = d2-d1;
+	 
+	 if(diffDays<0)
+	 {
+		alert("TIME UP");
+	 }
+	 else
+		{//Do nothing
+		} 
+
+ 	 d=Math.floor(diffDays/day);
+	 h=Math.floor(diffDays%day/hours);
+	 m=Math.floor(diffDays%day%hours/min);
+	 s=Math.floor(diffDays%day%hours%min/sec);
+
+	if(d<10)
+	 d="0"+d;
+	if(h<10)
+	 h="0"+h;
+	if(m<10)
+	 m="0"+m;
+	if(s<10)
+  	 s="0"+s;
+
+	document.getElementById("col1").innerHTML=d+"<br>DAYS";
+	document.getElementById("col2").innerHTML=h+"<br>HOURS";
+	document.getElementById("col3").innerHTML=m+"<br>MIN";
+	document.getElementById("col4").innerHTML=s+"<br>SEC";
+	
+	setTimeout("func_start()",500);
+	}
+
+function func_stop() 
+	{
+    	 clearTimeout(myVar);
+	}
+
+function func_reset()
+	{
+ 	 document.getElementById("col1").innerHTML="0<br>DAYS";
+	 document.getElementById("col2").innerHTML="0<br>HOURS";
+	 document.getElementById("col3").innerHTML="0<br>MIN";
+ 	 document.getElementById("col4").innerHTML="0<br>SEC";	
+ 	 clearTimeout(myVar);
+	}
+
+</script>
+
+<body bgcolor="BLACK">
+<h3 style="text-align:center;color:red">COUNTDOWN TIMER</h3>
+<div id="Days"></div>
+<h2 style="text-align:center;color:red">Enter the values in the given blanks</h2>
+<div class="form">
+<form > YEAR:<input type="text" name="Year" id="Dat1" placeholder="yyyy"></form><br>
+<form > MONTH:<input type="text" name="Month" id="Dat2" placeholder="mm"></form><br>
+<form > DATE:<input type="text" name="Date" id="Dat3" placeholder="dd"></form><br>
+<form > HOURS:<input type="text" name="Hours" id='Dat4' placeholder="hh"></form><br>
+<form > MINUTES:<input type="text" name="Minutes" id="Dat5" placeholder="mm"></form><br>
+<form > SECONDS:<input type="text" name="Seconds" id="Dat6" placeholder="ss"></form><br>
+<button type="button" onclick="func_start1()">Start</button>
+<button type="button" onclick="func_stop()">Stop</button>
+<button type="reset" onclick="func_reset()">Reset</button>
+<table style="background-color:red">
+<tr>
+<td id="col1"></td>
+<td id="col2"></td>
+<td id="col3"></td>
+<td id="col4"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

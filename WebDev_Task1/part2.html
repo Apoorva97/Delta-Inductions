@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CLOCK</title>
+	<h1 style ="color:WHITE; text-align:center">IPL FINALS</h1>
+	<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQmIUuRGRJXrmLccP2sZjdbL46ioJI35RsI5DWo7zeSr1iGxIihu1sRHbEo" height="400">
+	<img src="http://mozaicworks.com/wp-content/uploads/2015/03/burning-question-mark.jpg" height="450">
+	<script type="text/javascript">
+	
+		function Myfunc()
+	{	var day=1000*60*60*24;
+		var hours=1000*60*60;
+		var min=1000*60;
+		var sec=1000;
+
+		var d1 = new Date;
+		var d2 = new Date(2016,4,29,14,30,00,0);
+
+
+
+
+		
+	var diffDays = d2-d1;
+
+	D=Math.floor(diffDays/day);
+	H=Math.floor(diffDays%day/hours);
+	M=Math.floor(diffDays%day%hours/min);
+	S=Math.floor(diffDays%day%hours%min/sec);
+
+	if(D<10)
+		D="0"+D;
+	if(H<10)
+		H="0"+H;
+	if(M<10)
+		M="0"+M;
+	if(S<10)
+		S="0"+S;
+
+	document.getElementById("DAYS").innerHTML="TIME LEFT"+"</br>"+D+":"+H+":"+M+":"+S;
+	document.getElementById("DAYS").style.color="WHITE";
+	document.getElementById("DAYS").style.fontSize="xx-large";
+	document.getElementById("DAYS").style.textAlign="center";	
+
+	
+	
+
+
+
+		setTimeout("Myfunc()",1000);
+
+		}
+
+	</script>
+</head>
+	<body onload="Myfunc()" bgcolor="#000000">
+	<div id="DAYS"></div>
+</body>
+</html>
